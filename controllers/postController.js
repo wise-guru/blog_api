@@ -30,7 +30,7 @@ exports.get_all_posts = async (req, res, next) => {
   try {
     const posts = await Post.find()
       .sort([["date", "descending"]])
-      .populate("user");
+      .populate("user", "author avatar");
     return res.send(posts);
   } catch (err) {
     return next(err);
