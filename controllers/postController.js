@@ -37,13 +37,7 @@ exports.get_all_posts = async (req, res, next) => {
   }
 };
 
-// exports.get_all_posts = (req, res) => {
-//     return res.send(Object.values())
-// }
-
 exports.get_specific_post = function (req, res, next) {
-  // try {
-  // const post = await Post.find
   Post.findById(req.params.postId)
     // .populate("comment")
     .populate("user")
@@ -58,7 +52,6 @@ exports.get_specific_post = function (req, res, next) {
       }
       res.send(post);
     });
-  // }
 };
 
 exports.get_post_comments = async (req, res, next) => {
